@@ -1,0 +1,12 @@
+{
+  "name": "Tarun's Portfolio",
+  "short_name": "Tarun Gupta",
+  "description": "Tarun Gupta -> https://www.nextjs.org/commerce",
+  "display": "standalone",
+  "start_url": "/",
+  "theme_color": "#fff",
+  "background_color": "#000000",
+  "orientation": "portrait",
+  "icons": [
+  ]
+}

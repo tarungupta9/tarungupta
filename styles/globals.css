@@ -1,0 +1,19 @@
+:root {
+	--color-primary: #fff;
+	--color-primary-2: #fcb60d;
+	--color-secondary: #767676;
+	--color-tertiary: #a9a9a9;
+	--color-background: #171717;
+	--color-hover: #404040;
+}
+
+html,
+body,
+#__next {
+	height: 100%;
+	width: 100%;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

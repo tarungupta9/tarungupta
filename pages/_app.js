@@ -1,7 +1,22 @@
-import 'tailwindcss/tailwind.css'
+import { Fragment } from "react";
+import Head from "@containers/Head/Head";
+import "@styles/globals.css";
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+function Noop({ children }) {
+	return <Fragment>{children}</Fragment>;
 }
 
-export default MyApp
+function MyApp({ Component, pageProps }) {
+	const Layout = Component.Layout || Noop;
+
+	return (
+		<Fragment>
+			<Head />
+			<Layout pageProps={pageProps}>
+				<Component {...pageProps} />
+			</Layout>
+		</Fragment>
+	);
+}
+
+export default MyApp;
