@@ -9,7 +9,8 @@
 			"@utils/*": ["utils/*"],
 			"@styles/*": ["styles/*"],
 			"@config/*": ["config/*"],
-			"@data/*": ["data/*"]
+			"@data/*": ["data/*"],
+			"@contexts/*": ["contexts/*"]
 		}
 	},
 	"exclude": ["node_modules"]

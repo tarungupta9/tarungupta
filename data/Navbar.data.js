@@ -15,16 +15,16 @@ export default {
 		{
 			hyperlinks: [
 				{
-					isSelected: true,
+					id: "home",
 					Icon: FaHome,
 					label: "Home",
-					slug: "",
+					slug: "/",
 				},
 				{
-					isSelected: false,
+					id: "blogs",
 					Icon: FaEdit,
 					label: "Blogs",
-					slug: "",
+					slug: "/blogs",
 				},
 			],
 		},
@@ -32,13 +32,13 @@ export default {
 			heading: "Me",
 			hyperlinks: [
 				{
-					isSelected: false,
+					id: "bookmarks",
 					Icon: FaBookmark,
 					label: "Bookmarks",
 					slug: "",
 				},
 				{
-					isSelected: false,
+					id: "ama",
 					Icon: BsFillChatLeftFill,
 					label: "AMA",
 					slug: "",
@@ -49,15 +49,15 @@ export default {
 			heading: "Projects",
 			hyperlinks: [
 				{
+					id: "project1",
 					isExternal: true,
-					isSelected: false,
 					Icon: FaStickyNote,
 					label: "Project 1",
 					slug: "",
 				},
 				{
+					id: "project2",
 					isExternal: true,
-					isSelected: false,
 					Icon: FaStickyNote,
 					label: "Project 2",
 					slug: "",
@@ -68,25 +68,25 @@ export default {
 			heading: "Online",
 			hyperlinks: [
 				{
+					id: "linkedin",
 					isExternal: true,
-					isSelected: false,
 					Icon: FaLinkedin,
 					label: "LinkedIn",
 					slug: "https://www.linkedin.com/in/tarungupta2811/",
 				},
 				{
+					id: "github",
 					isExternal: true,
-					isSelected: false,
 					Icon: FaGithub,
 					label: "Github",
-					slug: "",
+					slug: "https://github.com/tarungupta9",
 				},
 				{
+					id: "twitter",
 					isExternal: true,
-					isSelected: false,
 					Icon: FaTwitter,
 					label: "Twitter",
-					slug: "",
+					slug: "https://twitter.com/tarun_gupta7",
 				},
 			],
 		},
