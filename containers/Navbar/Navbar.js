@@ -52,7 +52,7 @@ function Navbar() {
 			});
 
 			return (
-				<div className="mt-4">
+				<div key={index} className="mt-4">
 					<ListOfHyperlinks
 						key={index}
 						heading={heading}

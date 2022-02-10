@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import Head from "@containers/Head/Head";
+import Head from "@containers/Head/Head.server";
 import "@styles/globals.css";
 
 function Noop({ children }) {
