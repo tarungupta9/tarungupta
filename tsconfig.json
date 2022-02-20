@@ -1,0 +1,38 @@
+{
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@pages/*": ["pages/*"],
+			"@containers/*": ["containers/*"],
+			"@widgets/*": ["widgets/*"],
+			"@components/*": ["components/*"],
+			"@utils/*": ["utils/*"],
+			"@styles/*": ["styles/*"],
+			"@config/*": ["config/*"],
+			"@data/*": ["data/*"],
+			"@contexts/*": ["contexts/*"]
+		},
+		"target": "es5",
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"allowJs": true,
+		"skipLibCheck": true,
+		"strict": false,
+		"forceConsistentCasingInFileNames": true,
+		"noEmit": true,
+		"incremental": true,
+		"esModuleInterop": true,
+		"module": "esnext",
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"jsx": "preserve"
+	},
+	"exclude": ["node_modules"],
+	"include": [
+		"next-env.d.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		"containers/Blogs/Blogs.server.tsx",
+		"pages/_document.tsx"
+	]
+}

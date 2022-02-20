@@ -4,7 +4,9 @@
 	--color-secondary: #767676;
 	--color-tertiary: #a9a9a9;
 	--color-background: #171717;
+	--color-background-dark: #050505;
 	--color-hover: #404040;
+	--color-border: #262626;
 }
 
 html,

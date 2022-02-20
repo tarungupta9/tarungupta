@@ -8,25 +8,34 @@ import { useNavbarContext } from "@contexts/useNavbarContext";
 function Navbar() {
 	const { brandName, listings } = NavbarData;
 	const router = useRouter();
-	const { NavbarContext } = useNavbarContext(
+	const { NavbarContextProvider, NavbarContext } = useNavbarContext(
 		router.pathname.slice(1) || "home"
 	);
 	const [activeHyperlink, setActiveHyperlink] = useContext(NavbarContext);
 
 	return (
-		<nav className="bg-dark h-full">
-			<div
+		<NavbarContextProvider>
+			<nav
 				className={clsx(
-					"text-base",
-					"font-medium",
-					"text-primary",
-					"p-4"
+					"bg-background",
+					"h-full",
+					"border",
+					"border-outline"
 				)}
 			>
-				{brandName}
-			</div>
-			{getListings(listings)}
-		</nav>
+				<div
+					className={clsx(
+						"text-base",
+						"font-medium",
+						"text-primary",
+						"p-4"
+					)}
+				>
+					{brandName}
+				</div>
+				{getListings(listings)}
+			</nav>
+		</NavbarContextProvider>
 	);
 
 	function getListings(listings) {
