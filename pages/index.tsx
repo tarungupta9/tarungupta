@@ -14,7 +14,8 @@ function Home() {
 				"p-16"
 			)}
 		>
-			Hey 👋, My name is Tarun Gupta.
+			Hey 👋,
+			<br /> My name is Tarun Gupta.
 			<br />
 			A frontend engineer who craves to learn and develop highly
 			performant isomorphic web applications, study web and functional

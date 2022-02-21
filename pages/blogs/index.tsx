@@ -9,7 +9,14 @@ function Blogs({ children }) {
 			<main
 				className={clsx("flex", "h-full ", "text-base", "text-primary")}
 			>
-				<div className={clsx("bg-background", "h-full", "p-3")}>
+				<div
+					className={clsx(
+						"bg-background",
+						"h-full",
+						"p-3",
+						"overflow-auto"
+					)}
+				>
 					<ListOfPosts posts={blogListing} />
 				</div>
 				<div
