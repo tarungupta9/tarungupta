@@ -3,4 +3,9 @@ export type PostProptypes = {
 	name: string;
 	readingTime: string;
 	createdAt: string;
+	slug: string;
+};
+
+export type ListOfPostsTypes = {
+	posts: PostProptypes[];
 };

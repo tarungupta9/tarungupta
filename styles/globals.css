@@ -9,6 +9,10 @@
 	--color-border: #262626;
 }
 
+html {
+	font-size: 16px;
+}
+
 html,
 body,
 #__next {

@@ -1,8 +1,19 @@
+import clsx from "clsx";
 import Layout from "@containers/Layout/Layout";
 
 function Home() {
 	return (
-		<div>
+		<div
+			className={clsx(
+				"bg-background-dark",
+				"text-base",
+				"text-tertiary",
+				"h-full",
+				"flex-col",
+				"justify-between",
+				"p-16"
+			)}
+		>
 			Hey 👋, My name is Tarun Gupta.
 			<br />
 			A frontend engineer who craves to learn and develop highly

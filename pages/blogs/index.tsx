@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import Layout from "@containers/Layout/Layout";
 import ListOfPosts from "@widgets/ListOfPosts/ListOfPosts";
+import blogListing from "@data/Blogs.data";
 
 function Blogs({ children }) {
 	return (
@@ -9,7 +10,7 @@ function Blogs({ children }) {
 				className={clsx("flex", "h-full ", "text-base", "text-primary")}
 			>
 				<div className={clsx("bg-background", "h-full", "p-3")}>
-					Blogs listing
+					<ListOfPosts posts={blogListing} />
 				</div>
 				<div
 					className={clsx(
@@ -18,7 +19,9 @@ function Blogs({ children }) {
 						"flex-1",
 						"border",
 						"border-outline",
-						"p-4"
+						"p-4",
+						"text-base",
+						"text-tertiary"
 					)}
 				>
 					{children}

@@ -1,17 +1,33 @@
-import { PostProptypes } from "./ListOfPosts.types";
+import Post from "./Post";
+import { ListOfPostsTypes, PostProptypes } from "./ListOfPosts.types";
+import { useRouter } from "next/router";
 
-function ListOfPosts(posts: PostProptypes[]) {
-	return <div>Hello</div>;
+function ListOfPosts({ posts }: ListOfPostsTypes) {
+	const router = useRouter();
+	return <div>{renderPostsList(posts, redirect)}</div>;
+
+	function redirect(slug: string) {
+		if (slug) {
+			router.push(`/blogs/${slug}`);
+		}
+	}
 }
 
-// function renderPostsList(posts: PostProptypes[]) {
-// 	if (posts?.length < 0) {
-// 		return [];
-// 	}
+function renderPostsList(
+	posts: PostProptypes[],
+	redirect: (slug: string) => void
+) {
+	if (posts?.length < 0) {
+		return [];
+	}
 
-// 	return posts.map(({ id }) => {
-// 		return <Post key={id} />;
-// 	});
-// }
+	return posts.map((post) => {
+		return (
+			<div onClick={() => redirect(post.slug)}>
+				<Post id={post.id} {...post} />
+			</div>
+		);
+	});
+}
 
 export default ListOfPosts;
