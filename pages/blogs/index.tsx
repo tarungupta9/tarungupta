@@ -2,6 +2,8 @@ import clsx from "clsx";
 import Layout from "@containers/Layout/Layout";
 import ListOfPosts from "@widgets/ListOfPosts/ListOfPosts";
 import blogListing from "@data/Blogs.data";
+import { FaPlusCircle } from "react-icons/fa";
+import ListingLayout from "@containers/ListingLayout";
 
 function Blogs({ children }) {
 	return (
@@ -9,16 +11,19 @@ function Blogs({ children }) {
 			<main
 				className={clsx("flex", "h-full ", "text-base", "text-primary")}
 			>
-				<div
-					className={clsx(
-						"bg-background",
-						"h-full",
-						"p-3",
-						"overflow-auto"
-					)}
-				>
-					<ListOfPosts posts={blogListing} />
-				</div>
+				<ListingLayout>
+					<div
+						className={clsx(
+							"flex justify-between items-center p-4"
+						)}
+					>
+						<span>Writings</span>
+						<FaPlusCircle className={clsx("cursor-pointer")} />
+					</div>
+					<div className="px-4">
+						<ListOfPosts posts={blogListing} />
+					</div>
+				</ListingLayout>
 				<div
 					className={clsx(
 						"bg-background-dark",

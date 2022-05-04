@@ -23,7 +23,7 @@ function renderPostsList(
 
 	return posts.map((post) => {
 		return (
-			<div onClick={() => redirect(post.slug)}>
+			<div className="my-4" onClick={() => redirect(post.slug)}>
 				<Post id={post.id} {...post} />
 			</div>
 		);

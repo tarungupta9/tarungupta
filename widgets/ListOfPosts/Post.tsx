@@ -3,7 +3,7 @@ import { PostProptypes } from "./ListOfPosts.types";
 
 function Post({ name, createdAt, readingTime }: PostProptypes) {
 	return (
-		<div className="border rounded-md border-outline p-4 cursor-pointer">
+		<div className="cursor-pointer text-sm">
 			<span className={clsx("text-primary")}>{name}</span>
 			<div className={clsx("flex", "justify-between", "text-tertiary")}>
 				<span>{createdAt}</span>

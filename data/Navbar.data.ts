@@ -41,7 +41,7 @@ export default {
 					id: "ama",
 					Icon: BsFillChatLeftFill,
 					label: "AMA",
-					slug: "",
+					slug: "/ama",
 				},
 			],
 		},
