@@ -1,10 +1,14 @@
+import { useState } from "react";
 import clsx from "clsx";
 import Layout from "@containers/Layout/Layout";
-import ListOfPosts from "@widgets/ListOfPosts/ListOfPosts";
-import { FaPlusCircle } from "react-icons/fa";
 import ListingLayout from "@containers/ListingLayout";
+import ListOfPosts from "@widgets/ListOfPosts/ListOfPosts";
+import Modal from "@components/Modal/Modal";
+import { FaPlusCircle } from "react-icons/fa";
 
 function Ama({ children }) {
+	const [showModal, setShowModal] = useState<boolean>(false);
+
 	return (
 		<Layout>
 			<main
@@ -13,8 +17,20 @@ function Ama({ children }) {
 				<ListingLayout>
 					<div className={clsx("flex justify-between items-center")}>
 						<span>Ask me anything</span>
-						<FaPlusCircle className={clsx("cursor-pointer")} />
+						<FaPlusCircle
+							className={clsx("cursor-pointer")}
+							onClick={() => setShowModal(!showModal)}
+						/>
 					</div>
+					<Modal
+						title="A simple modal"
+						show={showModal}
+						onClose={() => {
+							setShowModal(false);
+						}}
+					>
+						<div>Modal</div>
+					</Modal>
 					{/* <ListOfPosts posts={blogListing} /> */}
 				</ListingLayout>
 			</main>

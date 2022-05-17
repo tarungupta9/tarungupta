@@ -41,9 +41,9 @@ export default function ListOfHyperlinks({
 						"mt-1",
 						"rounded-md",
 						"text-primary",
-						"hover:bg-hover",
+						"hover:bg-stone-700",
 						"hover:cursor-pointer",
-						isSelected && "bg-hover"
+						isSelected && "bg-stone-700"
 					)}
 					onClick={function handleClick(e) {
 						e.stopPropagation();

@@ -22,11 +22,11 @@ function Navbar() {
 				className={clsx(
 					"flex",
 					"flex-col",
-					"bg-background",
+					"bg-stone-900",
 					"w-2/12",
 					"h-full",
-					"border",
-					"border-outline",
+					"border-r",
+					"border-r-stone-700",
 					"box-border"
 				)}
 			>
@@ -55,7 +55,7 @@ function Navbar() {
 						"p-2",
 						"m-2",
 						"rounded",
-						"bg-outline",
+						"bg-stone-700",
 						"hover:cursor-pointer"
 					)}
 				>

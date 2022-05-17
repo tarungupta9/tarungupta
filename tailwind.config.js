@@ -11,14 +11,14 @@ module.exports = {
 		extend: {
 			colors: {
 				primary: "var(--color-primary)",
-				"primary-2": "var(--color-primary-2)",
 				secondary: "var(--color-secondary)",
 				tertiary: "var(--color-tertiary)",
-				background: "var(--color-background)",
-				"background-dark": "var(--color-background-dark)",
 				outline: "var(--color-border)",
 				hover: "var(--color-hover)",
 				// "background-light": "var(--color-background-dark)",
+				/**
+				 * stone-900, stone-800, stone-700
+				 */
 			},
 		},
 	},

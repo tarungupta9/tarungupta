@@ -5,7 +5,7 @@ function Home() {
 	return (
 		<div
 			className={clsx(
-				"bg-background-dark",
+				"bg-stone-800",
 				"text-base",
 				"text-tertiary",
 				"h-full",

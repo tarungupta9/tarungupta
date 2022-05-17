@@ -5,10 +5,12 @@ function ListingLayout({ children }) {
 		<div
 			className={clsx(
 				"w-4/12",
-				"bg-background",
+				"bg-stone-900",
 				"h-full",
 				"overflow-auto",
-				"p-4"
+				"p-4",
+				"border-r",
+				"border-r-stone-700"
 			)}
 		>
 			{children}

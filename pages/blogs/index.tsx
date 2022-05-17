@@ -9,7 +9,12 @@ function Blogs({ children }) {
 	return (
 		<Layout>
 			<main
-				className={clsx("flex", "h-full ", "text-base", "text-primary")}
+				className={clsx(
+					"flex",
+					"h-full ",
+					"text-base",
+					"text-primary",
+				)}
 			>
 				<ListingLayout>
 					<div
@@ -26,11 +31,9 @@ function Blogs({ children }) {
 				</ListingLayout>
 				<div
 					className={clsx(
-						"bg-background-dark",
+						"bg-stone-800",
 						"h-full",
 						"flex-1",
-						"border",
-						"border-outline",
 						"p-4",
 						"text-base",
 						"text-tertiary"

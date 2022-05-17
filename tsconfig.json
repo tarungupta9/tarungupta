@@ -6,11 +6,12 @@
 			"@containers/*": ["containers/*"],
 			"@widgets/*": ["widgets/*"],
 			"@components/*": ["components/*"],
+			"@hooks/*": ["hooks/*"],
 			"@utils/*": ["utils/*"],
 			"@styles/*": ["styles/*"],
 			"@config/*": ["config/*"],
 			"@data/*": ["data/*"],
-			"@contexts/*": ["contexts/*"],
+			"@contexts/*": ["contexts/*"]
 		},
 		"target": "es5",
 		"lib": ["dom", "dom.iterable", "esnext"],
