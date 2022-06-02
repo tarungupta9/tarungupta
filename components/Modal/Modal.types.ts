@@ -5,4 +5,5 @@ export type ModalTypes = {
 	onClose: Function,
 	children: React.ReactNode;
 	title?: string;
+	footer?: string;
 };

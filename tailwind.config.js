@@ -20,6 +20,9 @@ module.exports = {
 				 * stone-900, stone-800, stone-700
 				 */
 			},
+			padding: {
+				"1/2": "50%",
+			},
 		},
 	},
 	variants: {

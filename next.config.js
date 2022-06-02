@@ -11,4 +11,7 @@ const withMDX = require("@next/mdx")({
 module.exports = withMDX({
 	swcMinify: true,
 	pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
+	images: {
+		domains: ["lh3.googleusercontent.com"],
+	},
 });

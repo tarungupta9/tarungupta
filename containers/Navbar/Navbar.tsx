@@ -1,16 +1,14 @@
 import { useContext } from "react";
 import { useRouter } from "next/router";
-import { useSession, signIn, signOut } from "next-auth/react";
 import clsx from "clsx";
+import SignIn from "@containers/SignIn";
 import ListOfHyperlinks from "@widgets/ListOfHyperlinks/ListOfHyperlinks";
 import NavbarData from "@data/Navbar.data";
 import { useNavbarContext } from "@contexts/useNavbarContext";
-import { Session } from "next-auth";
 
 function Navbar() {
 	const { brandName, listings } = NavbarData;
 	const router = useRouter();
-	const { data: session } = useSession();
 	const { NavbarContextProvider, NavbarContext } = useNavbarContext(
 		router.pathname.slice(1) || "home"
 	);
@@ -47,19 +45,10 @@ function Navbar() {
 						"bottom-0",
 						"left-0",
 						"mt-auto",
-						"w-100",
-						"text-primary",
-						"text-sm",
-						"text-center",
-						"font-bold",
-						"p-2",
-						"m-2",
-						"rounded",
-						"bg-stone-700",
-						"hover:cursor-pointer"
+						"w-100"
 					)}
 				>
-					{getLoginUI(session)}
+					<SignIn />
 				</div>
 			</nav>
 		</NavbarContextProvider>
@@ -100,24 +89,6 @@ function Navbar() {
 				</div>
 			);
 		});
-	}
-
-	function getLoginUI(session: Session) {
-		if (session) {
-			console.log(session, "@@2");
-			return (
-				<>
-					Signed in as {session.user.email} <br />
-					<button onClick={() => signOut()}>Sign out</button>
-				</>
-			);
-		}
-
-		return (
-			<>
-				<button onClick={() => signIn()}>Sign in</button>
-			</>
-		);
 	}
 }
 

@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import useIsBrowser from "hooks/useIsBrowser";
+import { IoCloseSharp } from "react-icons/io5";
 import { ModalTypes } from "./Modal.types";
 import clsx from "clsx";
 
-function Modal({ show = false, onClose, children, title }: ModalTypes) {
+function Modal({ show = false, onClose, children, title, footer }: ModalTypes) {
 	const [showModal, setShowModal] = useState<boolean>(show);
 	const isBrowser = useIsBrowser();
 
@@ -14,7 +15,7 @@ function Modal({ show = false, onClose, children, title }: ModalTypes) {
 
 	if (isBrowser) {
 		return ReactDOM.createPortal(
-			showModal ? ModalUI({ title, onClose, children }) : null,
+			showModal ? ModalUI({ title, footer, onClose, children }) : null,
 			document.getElementById("modal-root")
 		);
 	} else {
@@ -22,7 +23,7 @@ function Modal({ show = false, onClose, children, title }: ModalTypes) {
 	}
 }
 
-function ModalUI({ title, onClose, children }) {
+function ModalUI({ title, footer, onClose, children }) {
 	return (
 		<div
 			data-id="modal-ui"
@@ -44,14 +45,47 @@ function ModalUI({ title, onClose, children }) {
 			<div
 				className={clsx(
 					"border",
-					"border-white",
+					"border-secondary",
 					"rounded",
-					"bg-stone-700",
-					"bg-opacity-100"
+					"bg-stone-800",
+					"bg-opacity-100",
+					"w-4/12"
 				)}
 			>
-				<h3 className="border-b p-4">{title}</h3>
+				<div
+					className={clsx(
+						"flex",
+						"justify-between",
+						"items-center",
+						"border-b",
+						"border-secondary",
+						"px-4",
+						"py-2"
+					)}
+				>
+					<h3>{title}</h3>
+					<IoCloseSharp
+						className={clsx("cursor-pointer")}
+						onClick={() => {
+							onClose();
+						}}
+					/>
+				</div>
 				<div className="p-4">{children}</div>
+				{footer && (
+					<div
+						className={clsx(
+							"border-t",
+							"border-secondary",
+							"px-4",
+							"py-2",
+							"text-tertiary",
+							"text-xs"
+						)}
+					>
+						{footer}
+					</div>
+				)}
 			</div>
 		</div>
 	);
