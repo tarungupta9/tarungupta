@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
 	--color-primary: #fff;
 	--color-primary-2: #fcb60d;
@@ -7,6 +11,16 @@
 	--color-background-dark: #050505;
 	--color-hover: #404040;
 	--color-border: #262626;
+}
+
+html {
+	box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+	overflow-y: hidden;
 }
 
 html {
@@ -20,6 +34,8 @@ body,
 	width: 100%;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+hr {
+	height: 1px;
+	background-color: #a9a9a9;
+	border: none;
+}

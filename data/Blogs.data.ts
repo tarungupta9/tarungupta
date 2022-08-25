@@ -12,14 +12,14 @@ const blogListing: BlogType[] = [
 		name: "How to Follow Design System Effectively",
 		createdAt: "February 1, 2022",
 		readingTime: "5 min",
-		slug: "how-to-follow-design-system-effeciently",
+		slug: "/blogs/how-to-follow-design-system-effeciently",
 	},
 	{
 		id: "How to Follow Design System Effectively 2",
 		name: "How to Follow Design System Effectively 2",
 		createdAt: "February 1, 2022",
 		readingTime: "5 min",
-		slug: "how-to-follow-design-system-effeciently",
+		slug: "/blogs/how-to-follow-design-system-effeciently",
 	},
 ];
 

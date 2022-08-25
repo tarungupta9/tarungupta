@@ -1,13 +1,13 @@
-import PropTypes from "prop-types";
 import clsx from "clsx";
 import { BsArrowUpRight } from "react-icons/bs";
 import { useRouter } from "next/router";
+import type { ListOfHyperlinks } from "./ListOfHyperlinks.types";
 
 export default function ListOfHyperlinks({
 	heading,
 	hyperlinks,
 	setActiveHyperlink,
-}) {
+}: ListOfHyperlinks) {
 	return (
 		<div className={clsx("flex-col", "text-tertiary", "px-4")}>
 			{heading && (
@@ -61,22 +61,3 @@ export default function ListOfHyperlinks({
 		});
 	}
 }
-
-ListOfHyperlinks.propTypes = {
-	heading: PropTypes.string,
-	hyperlinks: PropTypes.arrayOf(
-		PropTypes.shape({
-			isExternal: PropTypes.bool,
-			isSelected: PropTypes.bool,
-			Icon: PropTypes.func.isRequired,
-			label: PropTypes.string.isRequired,
-			slug: PropTypes.string.isRequired,
-		})
-	),
-	setActiveHyperlink: PropTypes.func,
-};
-
-ListOfHyperlinks.defaultProps = {
-	isSelected: false,
-	isExternal: false,
-};

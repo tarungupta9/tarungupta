@@ -19,9 +19,14 @@ function Home() {
 			<br />
 			A frontend engineer who craves to learn and develop highly
 			performant isomorphic web applications, study web and functional
-			programming.
+			programming. I keep myself fit by doing crossfit and presently
+			making sincere efforts to learn swimming. I have also started
+			reading books recently.
+			<br />
 			<br />
 			<span>
+				Tech Stack:
+				<br />
 				ReactJS | Redux | NextJS | PWA | Javascript | HTML | CSS |
 				NodeJS
 			</span>

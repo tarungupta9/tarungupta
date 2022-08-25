@@ -5,8 +5,6 @@ import clsx from "clsx";
 function SignIn() {
 	const { data: session } = useSession();
 
-	console.log(session, "@@@");
-
 	return (
 		<div
 			className={clsx(

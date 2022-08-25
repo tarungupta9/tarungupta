@@ -8,7 +8,7 @@ function ListOfPosts({ posts }: ListOfPostsTypes) {
 
 	function redirect(slug: string) {
 		if (slug) {
-			router.push(`/blogs/${slug}`);
+			router.push(slug);
 		}
 	}
 }

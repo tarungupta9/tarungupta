@@ -33,20 +33,15 @@ function Navbar() {
 						"text-base",
 						"font-medium",
 						"text-primary",
-						"p-4"
+						"p-4",
+						"ml-2"
 					)}
 				>
 					{brandName}
 				</div>
 				{getListings(listings)}
 				<div
-					className={clsx(
-						"sticky",
-						"bottom-0",
-						"left-0",
-						"mt-auto",
-						"w-100"
-					)}
+					className={clsx("sticky", "bottom-0", "left-0", "mt-auto", "w-100")}
 				>
 					<SignIn />
 				</div>
@@ -55,10 +50,7 @@ function Navbar() {
 	);
 
 	function getListings(listings) {
-		return listings.map(function listingMapper(
-			{ heading, hyperlinks },
-			index
-		) {
+		return listings.map(function listingMapper({ heading, hyperlinks }, index) {
 			const hyperlinksParsed = hyperlinks.map(function hyperlinksMapper({
 				id,
 				isExternal,

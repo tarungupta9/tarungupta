@@ -7,7 +7,7 @@ import {
 	FaGithub,
 	FaTwitter,
 } from "react-icons/fa";
-import { BsFillChatLeftFill } from "react-icons/bs";
+import { BsFillChatLeftFill, BsStack } from "react-icons/bs";
 
 export default {
 	brandName: "Tarun Gupta",
@@ -31,39 +31,45 @@ export default {
 		{
 			heading: "Me",
 			hyperlinks: [
-				{
-					id: "bookmarks",
-					Icon: FaBookmark,
-					label: "Bookmarks",
-					slug: "",
-				},
+				// {
+				// 	id: "bookmarks",
+				// 	Icon: FaBookmark,
+				// 	label: "Bookmarks",
+				// 	slug: "",
+				// },
 				{
 					id: "ama",
 					Icon: BsFillChatLeftFill,
 					label: "AMA",
 					slug: "/ama",
 				},
-			],
-		},
-		{
-			heading: "Projects",
-			hyperlinks: [
 				{
-					id: "project1",
-					isExternal: true,
-					Icon: FaStickyNote,
-					label: "Project 1",
-					slug: "",
-				},
-				{
-					id: "project2",
-					isExternal: true,
-					Icon: FaStickyNote,
-					label: "Project 2",
-					slug: "",
+					id: "stack",
+					Icon: BsStack,
+					label: "Stack",
+					slug: "/stack",
 				},
 			],
 		},
+		// {
+		// 	heading: "Projects",
+		// 	hyperlinks: [
+		// 		{
+		// 			id: "project1",
+		// 			isExternal: true,
+		// 			Icon: FaStickyNote,
+		// 			label: "Project 1",
+		// 			slug: "",
+		// 		},
+		// 		{
+		// 			id: "project2",
+		// 			isExternal: true,
+		// 			Icon: FaStickyNote,
+		// 			label: "Project 2",
+		// 			slug: "",
+		// 		},
+		// 	],
+		// },
 		{
 			heading: "Online",
 			hyperlinks: [
