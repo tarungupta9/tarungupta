@@ -29,7 +29,7 @@ function AMADetails({
 
 	return (
 		<div className="flex flex-col w-full">
-			<div className="mt-4 overflow-y-auto flex-2">
+			<div className="mt-4 overflow-y-auto grow">
 				<div className="flex items-center p-4">
 					<Image
 						className="rounded-full"
