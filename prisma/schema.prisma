@@ -12,28 +12,29 @@ datasource db {
 
 model Blogs {
   id           String  		@id @default(auto()) @map("_id") @db.ObjectId
+  name         String  		
+  slug         String
+  readingTime  String     
   createdAt    DateTime		@default(now())
   updatedAt    DateTime		@updatedAt
-  title        String  		
-  content      String?		
-  published    Boolean 	 	@default(false)
-  author       Users     	@relation(fields: [authorId], references: [id])
-  authorId     String		  @db.ObjectId
 }
 
 model Users {
   id   	       String   	@id @default(auto()) @map("_id") @db.ObjectId
-  email	       String   	@unique
-  name 	       String?
-  posts	       Blogs[]
+	oauthId			 String
+  email	       String   	
+  name 	       String
+	image				 String
+	createdAt    DateTime		@default(now())
+  updatedAt    DateTime		@updatedAt
 }
 
 model Ama {
  	id		  	   String   	@id @default(auto()) @map("_id") @db.ObjectId
 	comments		 Comments[]
-	userName	 	 String
-	userImage	   String
-	userEmail	   String
+	name	 	     String
+	image	       String
+	email	       String
 	query   	   String	
 	description  String?
 	public		   Boolean		@default(false)	
@@ -45,10 +46,11 @@ model Comments {
 	id           String     @id @default(auto()) @map("_id") @db.ObjectId
 	ama 				 Ama			  @relation(fields: [ama_id], references: [id])
 	ama_id			 String     @db.ObjectId
-	userName	 	 String
-	userImage	   String
-	userEmail	   String
+	name	 	 		 String
+	image	   		 String
+	email	   		 String
 	comment			 String
+	isDeleted    Boolean		@default(false)	
 	createdAt    DateTime   @default(now())
   updatedAt    DateTime   @updatedAt
 }

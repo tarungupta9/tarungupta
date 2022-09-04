@@ -5,31 +5,24 @@ import { prisma } from "../../db";
 export default async (req: NextApiRequest, res: NextApiResponse) => {
 	if (req.method === "POST" && req.body) {
 		const session = await getSession({ req });
+		const { ama_id, comment } = req.body;
 
 		if (!session) {
 			res.status(401).send("You are not authenticated");
 		}
 
-		if (
-			!req.body.ama_id ||
-			!req.body.userName ||
-			!req.body.userEmail ||
-			!req.body.userImage ||
-			!req.body.comment
-		) {
+		if (!ama_id || !comment) {
 			res.status(400).send("Missing required fields");
 		}
-
-		const { ama_id, comment, userEmail, userImage, userName } = req.body;
 
 		try {
 			const comments = await prisma.comments.create({
 				data: {
 					ama_id,
 					comment,
-					userName,
-					userEmail,
-					userImage,
+					name: session.user.name,
+					email: session.user.email,
+					image: session.user.image,
 				},
 			});
 			res.status(201).json(comments);

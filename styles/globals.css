@@ -1,4 +1,21 @@
 @tailwind base;
+@layer base {
+	h1 {
+		@apply text-2xl mb-4 text-primary;
+	}
+	h2 {
+		@apply text-xl;
+	}
+	h3 {
+		@apply text-lg;
+	}
+	a {
+		@apply italic underline text-secondary;
+	}
+	p {
+		@apply mb-4;
+	}
+}
 @tailwind components;
 @tailwind utilities;
 
@@ -38,4 +55,9 @@ hr {
 	height: 1px;
 	background-color: #a9a9a9;
 	border: none;
+}
+
+input:focus,
+textarea:focus {
+	outline: none;
 }

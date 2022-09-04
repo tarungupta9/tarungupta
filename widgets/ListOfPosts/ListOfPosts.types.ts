@@ -8,4 +8,5 @@ export type PostProptypes = {
 
 export type ListOfPostsTypes = {
 	posts: PostProptypes[];
+	selectedId?: string;
 };

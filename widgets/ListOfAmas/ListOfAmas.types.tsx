@@ -1,14 +1,13 @@
-import React from "react";
-
 export type AmaType = {
 	id: string;
 	query: string;
-	userName: string;
-	userEmail: string;
-	userImage: string;
+	name: string;
+	email: string;
+	image: string;
 	createdAt: string;
 };
 
 export type ListOfAmasType = {
 	amas: AmaType[];
+	selectedId?: string;
 };

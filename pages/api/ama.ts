@@ -10,24 +10,18 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 			res.status(401).send("You are not authenticated");
 		}
 
-		if (!req.body.userName || !req.body.userEmail || !req.body.query) {
+		if (!req.body.name || !req.body.email || !req.body.query) {
 			res.status(400).send("Missing required fields");
 		}
 
-		const {
-			userName,
-			userEmail,
-			userImage,
-			query,
-			description = "",
-		} = req.body;
+		const { name, email, image, query, description = "" } = req.body;
 
 		try {
 			const posts = await prisma.ama.create({
 				data: {
-					userName,
-					userEmail,
-					userImage,
+					name,
+					email,
+					image,
 					query,
 					description,
 				},
@@ -52,9 +46,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 					description: true,
 					id: true,
 					query: true,
-					userEmail: true,
-					userImage: true,
-					userName: true,
+					email: true,
+					image: true,
+					name: true,
 				},
 			});
 			res.status(200).json(ama);

@@ -8,15 +8,16 @@ function SignIn() {
 	return (
 		<div
 			className={clsx(
+				"flex",
+				"flex-col",
+				"items-center",
 				"text-primary",
 				"text-sm",
-				"text-center",
 				"font-bold",
 				"p-2",
 				"m-2",
 				"rounded",
-				"bg-stone-800",
-				"hover:cursor-pointer"
+				"bg-stone-800"
 			)}
 		>
 			{getAuthUI(session)}
@@ -27,17 +28,45 @@ function SignIn() {
 function getAuthUI(session: Session) {
 	if (session) {
 		return (
-			<>
-				Signed in as {session.user.email} <br />
-				<button onClick={() => signOut()}>Sign out</button>
-			</>
+			<div className="flex flex-col items-center">
+				<span>Signed in as</span>
+				<span className="truncate w-40">{session.user.email}</span>
+				<button
+					className={clsx(
+						"text-primary",
+						"text-sm",
+						"text-center",
+						"font-bold",
+						"p-2",
+						"mt-2",
+						"rounded",
+						"hover:cursor-pointer",
+						"bg-blue-500 "
+					)}
+					onClick={() => signOut()}
+				>
+					Sign out
+				</button>
+			</div>
 		);
 	}
 
 	return (
-		<>
-			<button onClick={() => signIn()}>Sign in</button>
-		</>
+		<button
+			className={clsx(
+				"text-primary",
+				"text-sm",
+				"text-center",
+				"font-bold",
+				"p-2",
+				"rounded",
+				"hover:cursor-pointer",
+				"bg-blue-500 "
+			)}
+			onClick={() => signIn()}
+		>
+			Sign in
+		</button>
 	);
 }
 

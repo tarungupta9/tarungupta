@@ -6,10 +6,10 @@ function CommentBox({ submitComment }: CommentBoxTypes) {
 	const [comment, setComment] = useState<string>("");
 
 	return (
-		<div className="flex flex-1 p-4 border-t bg-stone-800 border-stone-700 box-border">
+		<div className="flex">
 			<form className="flex flex-1 items-center" onSubmit={handleSubmit}>
 				<input
-					className="flex flex-1 p-2 mr-4 bg-stone-700 focus:outline-none "
+					className="flex flex-1 p-2 mr-4 bg-stone-700"
 					type="text"
 					placeholder="Write a comment"
 					value={comment}

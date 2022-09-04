@@ -14,7 +14,6 @@ import { prisma } from "../../db";
 import AMADetails from "@containers/AMADetails";
 import { AMADetailsType } from "@containers/AMADetails/AMADetails.types";
 import fetcher from "@utils/fetcher";
-import { beautifyDate } from "@utils/date";
 
 function Ama({ queries }) {
 	const [showModal, setShowModal] = useState<boolean>(false);
@@ -30,16 +29,16 @@ function Ama({ queries }) {
 
 	const amaQueries = JSON.parse(queries);
 
-	let id = Array.isArray(ids) ? ids[0] : ids;
+	let selectedId = Array.isArray(ids) ? ids[0] : ids;
 
 	useEffect(() => {
-		if (id) {
+		if (selectedId) {
 			const promises = [
 				fetcher({
 					url: "/api/ama",
 					config: {
 						params: {
-							id,
+							id: selectedId,
 						},
 					},
 				}),
@@ -47,7 +46,7 @@ function Ama({ queries }) {
 					url: "/api/comments",
 					config: {
 						params: {
-							id,
+							id: selectedId,
 						},
 					},
 				}),
@@ -64,7 +63,7 @@ function Ama({ queries }) {
 					setError(err);
 				});
 		}
-	}, [id]);
+	}, [selectedId]);
 
 	return (
 		<Layout>
@@ -77,7 +76,7 @@ function Ama({ queries }) {
 							onClick={() => setShowModal(!showModal)}
 						/>
 					</div>
-					<ListOfAmas amas={amaQueries} />
+					<ListOfAmas amas={amaQueries} selectedId={selectedId} />
 					{session ? (
 						<Modal
 							title="Ask Me Anything"
@@ -142,9 +141,9 @@ function Ama({ queries }) {
 										onClick={() =>
 											handleQuery(
 												{
-													userName: session.user.name,
-													userEmail: session.user.email,
-													userImage: session.user.image,
+													name: session.user.name,
+													email: session.user.email,
+													image: session.user.image,
 													query,
 													description,
 												},
@@ -170,15 +169,15 @@ function Ama({ queries }) {
 						</Modal>
 					)}
 				</ListingLayout>
-				{amaData?.id && (
+				{selectedId && amaData?.id && (
 					<AMADetails
 						id={amaData.id}
 						createdAt={amaData.createdAt}
 						description={amaData.description}
 						query={amaData.query}
-						userEmail={amaData.userEmail}
-						userImage={amaData.userImage}
-						userName={amaData.userName}
+						email={amaData.email}
+						image={amaData.image}
+						name={amaData.name}
 						comments={amaData.comments}
 					/>
 				)}
@@ -189,15 +188,15 @@ function Ama({ queries }) {
 
 async function handleQuery(
 	{
-		userName,
-		userEmail,
-		userImage,
+		name,
+		email,
+		image,
 		query,
 		description,
 	}: {
-		userName: string;
-		userEmail: string;
-		userImage: string;
+		name: string;
+		email: string;
+		image: string;
 		query: string;
 		description?: string;
 	},
@@ -205,9 +204,9 @@ async function handleQuery(
 ) {
 	await axios
 		.post("/api/ama", {
-			userName,
-			userEmail,
-			userImage,
+			name,
+			email,
+			image,
 			query,
 			description,
 		})
@@ -231,9 +230,9 @@ export async function getServerSideProps(context) {
 			select: {
 				id: true,
 				query: true,
-				userName: true,
-				userEmail: true,
-				userImage: true,
+				name: true,
+				email: true,
+				image: true,
 				createdAt: true,
 			},
 		});

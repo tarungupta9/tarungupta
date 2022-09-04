@@ -1,9 +1,9 @@
 export type CommentType = {
 	id: string;
 	comment: string;
-	userEmail: string;
-	userImage: string;
-	userName: string;
+	email: string;
+	image: string;
+	name: string;
 	createdAt: string;
 };
 
@@ -11,9 +11,9 @@ export type AMADetailsType = {
 	id: string;
 	description: string;
 	query: string;
-	userEmail: string;
-	userImage: string;
-	userName: string;
+	email: string;
+	image: string;
+	name: string;
 	createdAt: string;
 	comments: CommentType[];
 };
