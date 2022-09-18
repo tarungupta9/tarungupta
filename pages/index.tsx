@@ -1,5 +1,5 @@
-import clsx from "clsx";
 import Layout from "@containers/Layout/Layout";
+import clsx from "clsx";
 
 function Home() {
 	return (
