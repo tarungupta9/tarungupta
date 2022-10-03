@@ -11,9 +11,7 @@ export default function ListOfHyperlinks({
 	return (
 		<div className={clsx("flex-col", "text-tertiary", "px-4")}>
 			{heading && (
-				<span
-					className={clsx("block", "py-2", "text-sm", "font-normal")}
-				>
+				<span className={clsx("block", "py-2", "text-sm", "font-normal")}>
 					{heading}
 				</span>
 			)}

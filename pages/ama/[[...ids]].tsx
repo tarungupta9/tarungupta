@@ -70,7 +70,7 @@ function Ama({ queries }) {
 	return (
 		<main className={clsx("flex", "h-full ", "text-base", "text-primary")}>
 			<ListingLayout>
-				<div className={clsx("flex justify-between items-center mb-4")}>
+				<div className={clsx("flex justify-between items-center pt-4 mb-4")}>
 					<span className="ml-2">Ask me anything</span>
 					<FaPlusCircle
 						className={clsx("cursor-pointer")}

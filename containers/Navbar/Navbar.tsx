@@ -8,9 +8,9 @@ import { useNavbarContext } from "@contexts/useNavbarContext";
 
 function Navbar() {
 	const { brandName, listings } = NavbarData;
-	const router = useRouter();
+	const { pathname } = useRouter();
 	const { NavbarContextProvider, NavbarContext } = useNavbarContext(
-		router.pathname.slice(1) || "home"
+		pathname.split("/")[1] || "home"
 	);
 	const [activeHyperlink, setActiveHyperlink] = useContext(NavbarContext);
 

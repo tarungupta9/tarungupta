@@ -110,6 +110,4 @@ function getComments(comments) {
 	);
 }
 
-// TODO: Extract getComments as it will be used in blogs as well
-
 export default AMADetails;

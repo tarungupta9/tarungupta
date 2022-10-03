@@ -8,9 +8,10 @@ function ListingLayout({ children }) {
 				"bg-stone-900",
 				"h-full",
 				"overflow-auto",
-				"p-4",
+				"px-4",
 				"border-r",
-				"border-r-stone-700"
+				"border-r-stone-700",
+				"shrink-0"
 			)}
 		>
 			{children}
