@@ -22,7 +22,7 @@ model Blogs {
 model Users {
   id   	       String   	@id @default(auto()) @map("_id") @db.ObjectId
 	oauthId			 String
-  email	       String   	
+  email	       String   	@unique
   name 	       String
 	image				 String
 	createdAt    DateTime		@default(now())

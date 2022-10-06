@@ -37,7 +37,7 @@ function Navbar() {
 						"ml-2"
 					)}
 				>
-					{brandName}
+					<h2>{brandName}</h2>
 				</div>
 				{getListings(listings)}
 				<div

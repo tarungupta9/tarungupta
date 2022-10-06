@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import axios from "axios";
-import { FaRegComment } from "react-icons/fa";
+import { FaRegComment, FaRegTrashAlt } from "react-icons/fa";
 import {
 	AMADetailsType,
 	CommentType,
 } from "@containers/AMADetails/AMADetails.types";
 import CommentBox from "@components/CommentBox/CommentBox";
+import useSnackbar from "@contexts/snackbar/useSnackbar";
 import { beautifyDate } from "@utils/date";
 
 function AMADetails({
@@ -22,6 +23,7 @@ function AMADetails({
 	const [allComments, setAllComments] = useState<CommentType[]>(comments);
 
 	const { data: session } = useSession();
+	const setAlert = useSnackbar();
 
 	useEffect(() => {
 		setAllComments(comments);
@@ -59,55 +61,86 @@ function AMADetails({
 		</div>
 	);
 
+	function getComments(comments) {
+		return comments?.length > 0 ? (
+			comments.map(({ id, comment, image, name, email, createdAt }) => (
+				<div key={id} className="group mt-2">
+					<div className="flex items-center justify-between">
+						<div className="flex items-center">
+							<Image
+								className="rounded-full"
+								src={image}
+								alt="profile"
+								width={24}
+								height={24}
+							/>
+							<div>
+								<span className="ml-2">{name}</span>
+								&nbsp;&middot;&nbsp;
+								<span className="text-tertiary">{beautifyDate(createdAt)}</span>
+							</div>
+						</div>
+						{email === session.user.email && (
+							<FaRegTrashAlt
+								className="hidden cursor-pointer group-hover:block"
+								onClick={() => handleCommentDeletion(id)}
+							/>
+						)}
+					</div>
+					<p className="pl-8 text-tertiary">{comment}</p>
+				</div>
+			))
+		) : (
+			<div>No Comments 🤓</div>
+		);
+	}
+
 	async function handleCommentSubmission(newComment) {
 		const commentPayload = {
 			ama_id: id,
 			comment: newComment,
 		};
 
-		await axios
-			.post("/api/comments", commentPayload)
-			.then(() => {
-				setAllComments((allComments) => [
-					...allComments,
-					{
-						...commentPayload,
-						id: Math.random().toString(),
-						createdAt: new Date().toISOString(),
-						email: session.user.email,
-						image: session.user.image,
-						name: session.user.name,
-					},
-				]);
-			})
-			.catch(() => {}); // TODO: Toast failed to comment please try again
-	}
-}
+		try {
+			const {
+				data: { id, name, image, email, comment, createdAt } = { data: {} },
+			} = await axios.post("/api/comments", commentPayload);
 
-function getComments(comments) {
-	return comments?.length > 0 ? (
-		comments.map(({ id, comment, image, name, createdAt }) => (
-			<div key={id}>
-				<div className="flex items-center mt-4">
-					<Image
-						className="rounded-full"
-						src={image}
-						alt="profile"
-						width={24}
-						height={24}
-					/>
-					<div>
-						<span className="ml-2">{name}</span>
-						&nbsp;&middot;&nbsp;
-						<span className="text-tertiary">{beautifyDate(createdAt)}</span>
-					</div>
-				</div>
-				<p className="pl-8 text-tertiary">{comment}</p>
-			</div>
-		))
-	) : (
-		<div>No Comments 🤓</div>
-	);
+			setAllComments((allComments) => [
+				...allComments,
+				{
+					id,
+					comment,
+					email,
+					image,
+					name,
+					createdAt,
+				},
+			]);
+		} catch (error) {
+			setAlert({
+				message: "Sorry, failed to comment. Please try again in sometime!",
+				type: "error",
+			});
+		}
+	}
+
+	async function handleCommentDeletion(commentId) {
+		confirm("Do you want to delete the comment?");
+		try {
+			await axios.patch("/api/comments", { data: { id: commentId } });
+
+			setAllComments((prevAllComments) =>
+				prevAllComments.filter(({ id }) => id != commentId)
+			);
+		} catch (error) {
+			setAlert({
+				message:
+					"Sorry, couldn't delete the comment. Please try again in sometime!",
+				type: "error",
+			});
+		}
+	}
 }
 
 export default AMADetails;
