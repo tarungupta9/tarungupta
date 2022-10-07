@@ -16,8 +16,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
 		const { name, email, image, query, description = "" } = req.body;
 
-		console.log(req.body, "@#@@#");
-
 		try {
 			const posts = await prisma.ama.create({
 				data: {

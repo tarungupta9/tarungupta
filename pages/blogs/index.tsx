@@ -14,9 +14,9 @@ function Blogs({ selectedId, children }) {
 		<Layout>
 			<main className={clsx("flex", "h-full ", "text-base", "text-primary")}>
 				<ListingLayout>
-					<div className={clsx("flex justify-between items-center pt-4 mb-4")}>
-						<span className="ml-2">Writings</span>
-					</div>
+					<h4 className={"sticky top-0 bg-stone-900 py-4 text-primary z-10"}>
+						Writings
+					</h4>
 					<ListOfPosts selectedId={selectedId} posts={blogListing} />
 				</ListingLayout>
 				<div

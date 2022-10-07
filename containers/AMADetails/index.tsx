@@ -10,6 +10,7 @@ import {
 import CommentBox from "@components/CommentBox/CommentBox";
 import useSnackbar from "@contexts/snackbar/useSnackbar";
 import { beautifyDate } from "@utils/date";
+import SignInModal from "@components/SignInModal/SignInModal";
 
 function AMADetails({
 	id,
@@ -21,6 +22,7 @@ function AMADetails({
 	comments = [],
 }: AMADetailsType) {
 	const [allComments, setAllComments] = useState<CommentType[]>(comments);
+	const [showSignIn, setShowSignIn] = useState<boolean>(false);
 
 	const { data: session } = useSession();
 	const setAlert = useSnackbar();
@@ -58,6 +60,10 @@ function AMADetails({
 			<div className="sticky bottom-0 w-full p-4 border-t bg-stone-800 border-stone-700 box-border">
 				<CommentBox submitComment={handleCommentSubmission} />
 			</div>
+			<SignInModal
+				show={showSignIn}
+				onClose={() => setShowSignIn(!showSignIn)}
+			/>
 		</div>
 	);
 
@@ -80,7 +86,7 @@ function AMADetails({
 								<span className="text-tertiary">{beautifyDate(createdAt)}</span>
 							</div>
 						</div>
-						{email === session.user.email && (
+						{session && email === session.user.email && (
 							<FaRegTrashAlt
 								className="hidden cursor-pointer group-hover:block"
 								onClick={() => handleCommentDeletion(id)}
@@ -96,6 +102,11 @@ function AMADetails({
 	}
 
 	async function handleCommentSubmission(newComment) {
+		if (!session) {
+			setShowSignIn(!showSignIn);
+			return;
+		}
+
 		const commentPayload = {
 			ama_id: id,
 			comment: newComment,

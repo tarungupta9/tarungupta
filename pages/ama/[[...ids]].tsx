@@ -8,13 +8,13 @@ import { FaPlusCircle } from "react-icons/fa";
 import ListOfAmas from "@widgets/ListOfAmas/ListOfAmas";
 import Layout from "@containers/Layout/Layout";
 import ListingLayout from "@containers/ListingLayout";
-import SignIn from "@containers/SignIn";
 import Modal from "@components/Modal/Modal";
 import { prisma } from "../../db";
 import AMADetails from "@containers/AMADetails";
 import { AMADetailsType } from "@containers/AMADetails/AMADetails.types";
 import fetcher from "@utils/fetcher";
 import useSnackbar from "@contexts/snackbar/useSnackbar";
+import SignInModal from "@components/SignInModal/SignInModal";
 
 function Ama({ queries }) {
 	const setAlert = useSnackbar();
@@ -70,8 +70,12 @@ function Ama({ queries }) {
 	return (
 		<main className={clsx("flex", "h-full ", "text-base", "text-primary")}>
 			<ListingLayout>
-				<div className={clsx("flex justify-between items-center pt-4 mb-4")}>
-					<span className="ml-2">Ask me anything</span>
+				<div
+					className={clsx(
+						"sticky top-0 flex justify-between items-center py-4 bg-stone-900 z-10"
+					)}
+				>
+					<h4 className="text-primary">Ask me anything</h4>
 					<FaPlusCircle
 						className={clsx("cursor-pointer")}
 						onClick={() => setShowModal(!showModal)}
@@ -158,16 +162,12 @@ function Ama({ queries }) {
 						</div>
 					</Modal>
 				) : (
-					<Modal
-						title="Sign In"
-						footer="Delete your account any time. I will only request access to your public Google profile information. You won’t be subscribed to anything."
+					<SignInModal
 						show={showModal}
 						onClose={() => {
 							setShowModal(false);
 						}}
-					>
-						<SignIn />
-					</Modal>
+					/>
 				)}
 			</ListingLayout>
 			{selectedId && amaData?.id && (
