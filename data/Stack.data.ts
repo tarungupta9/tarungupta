@@ -19,6 +19,8 @@ import {
 	SiGithub,
 	SiFigma,
 	SiVercel,
+	SiReactrouter,
+	SiTestinglibrary,
 } from "react-icons/si";
 
 export default {
@@ -33,8 +35,10 @@ export default {
 		{ Icon: SiNextdotjs, name: "NextJS" },
 		{ Icon: SiRedux, name: "Redux" },
 		{ Icon: SiJest, name: "Jest" },
+		{ Icon: SiTestinglibrary, name: "React Testing Library" },
 		{ Icon: SiBabel, name: "Babel" },
 		{ Icon: SiWebpack, name: "Webpack" },
+		{ Icon: SiReactrouter, name: "React Router" },
 		{ Icon: SiTailwindcss, name: "Tailwind CSS" },
 		{ Icon: SiStyledcomponents, name: "CSS-in-JS" },
 		{ Icon: SiExpress, name: "Express" },
