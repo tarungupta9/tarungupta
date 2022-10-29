@@ -38,6 +38,7 @@ model Ama {
 	query   	   String	
 	description  String?
 	public		   Boolean		@default(false)	
+	isDeleted    Boolean		@default(false)	
 	createdAt    DateTime   @default(now())
   updatedAt    DateTime   @updatedAt
 }

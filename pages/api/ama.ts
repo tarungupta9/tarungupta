@@ -31,6 +31,34 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 			console.log(error);
 			res.status(500).json(error);
 		}
+	} else if (req.method === "PATCH" && req.body) {
+		const session = await getSession({ req });
+
+		if (!session) {
+			res.status(401).send("You are not authenticated");
+		}
+
+		const {
+			data: { id = undefined },
+		} = req.body;
+
+		if (!id) {
+			res.status(400).send("Missing required fields");
+		}
+
+		try {
+			const comments = await prisma.ama.update({
+				where: {
+					id,
+				},
+				data: {
+					isDeleted: true,
+				},
+			});
+			res.status(200).json(comments);
+		} catch (error) {
+			res.status(500).json(error);
+		}
 	} else if (req.method === "GET") {
 		let { id } = req.query;
 

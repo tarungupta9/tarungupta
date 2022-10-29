@@ -23,7 +23,7 @@ function Ama({ queries }) {
 	const [description, setDescription] = useState<string>("");
 	const [amaData, setAmaData] = useState<AMADetailsType>();
 	const [error, setError] = useState();
-	// TODO: Implement useFetch hook
+	// TODO: Implement react-query
 
 	const router = useRouter();
 	const { ids } = router.query;

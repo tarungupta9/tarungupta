@@ -1,18 +1,31 @@
+import { useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import { useSession } from "next-auth/react";
+import axios from "axios";
 import clsx from "clsx";
+import { FaRegTrashAlt } from "react-icons/fa";
+import useSnackbar from "@contexts/snackbar/useSnackbar";
 import type { ListOfAmasType, AmaType } from "./ListOfAmas.types";
 
 function ListOfAmas({ amas, selectedId }: ListOfAmasType) {
 	const router = useRouter();
-	return <div>{getAmas(amas, selectedId)}</div>;
+	const { data: session } = useSession();
+	const setAlert = useSnackbar();
+
+	const [currentAmas, setCurrentAmas] = useState<AmaType[]>(amas);
+
+	return <div>{getAmas(currentAmas, selectedId)}</div>;
 
 	function getAmas(amas: AmaType[], selectedId?: string) {
-		return amas.map(({ id, query, name, image }) => (
+		return amas.map(({ id, query, name, email, image }) => (
 			<div
 				key={id}
 				className={clsx(
-					"flex-col",
+					"group",
+					"flex",
+					"items-center",
+					"justify-between",
 					"text-sm",
 					"p-2",
 					"m-2",
@@ -24,19 +37,44 @@ function ListOfAmas({ amas, selectedId }: ListOfAmasType) {
 				)}
 				onClick={() => router.push(`/ama/${id}`)}
 			>
-				<span className="block mb-1">{query}</span>
-				<div className="flex items-center">
-					<Image
-						className="rounded-full"
-						src={image}
-						alt="profile"
-						width={16}
-						height={16}
-					/>
-					<span className="ml-2">{name}</span>
+				<div>
+					<span className="block mb-1">{query}</span>
+					<div className="flex items-center">
+						<Image
+							className="rounded-full"
+							src={image}
+							alt="profile"
+							width={16}
+							height={16}
+						/>
+						<span className="ml-2">{name}</span>
+					</div>
 				</div>
+				{session && email === session.user.email && (
+					<FaRegTrashAlt
+						className="hidden cursor-pointer group-hover:block mr-2"
+						onClick={() => handleAMADeletion(id)}
+					/>
+				)}
 			</div>
 		));
+	}
+
+	async function handleAMADeletion(amaId) {
+		confirm("Do you want to delete this query?");
+		try {
+			await axios.patch("/api/ama", { data: { id: amaId } });
+
+			setCurrentAmas((prevAllComments) =>
+				prevAllComments.filter(({ id }) => id !== amaId)
+			);
+		} catch (error) {
+			setAlert({
+				message:
+					"Sorry, couldn't delete the comment. Please try again in sometime!",
+				type: "error",
+			});
+		}
 	}
 }
 
