@@ -34,6 +34,9 @@
 		"**/*.ts",
 		"**/*.tsx",
 		"containers/Blogs/Blogs.server.tsx",
-		"pages/_document.tsx"
-, "contexts/useNavbarContext.js"	]
+		"pages/_document.tsx",
+		"contexts/useNavbarContext.js",
+		"pages/index.tsx",
+		"components/HomeContent/index.mdx"
+	]
 }

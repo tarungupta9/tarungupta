@@ -26,7 +26,7 @@ function renderPostsList(
 	return posts.map((post) => {
 		return (
 			<div
-				id={post.id}
+				key={post.id}
 				className={clsx(
 					"p-2",
 					"m-2",

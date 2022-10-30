@@ -13,7 +13,7 @@
 		@apply italic underline text-secondary;
 	}
 	p {
-		@apply mb-4;
+		@apply mb-4 inline-block;
 	}
 }
 @tailwind components;
