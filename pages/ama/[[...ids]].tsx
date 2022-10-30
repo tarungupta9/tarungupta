@@ -228,7 +228,7 @@ function Ama({ queries }) {
 	}
 }
 
-export async function getServerSideProps(context) {
+export async function getStaticProps() {
 	let queries;
 
 	try {
@@ -255,6 +255,13 @@ export async function getServerSideProps(context) {
 		props: { queries: JSON.stringify(queries) },
 	};
 }
+
+export const getStaticPaths = async () => {
+	return {
+		paths: [],
+		fallback: "blocking",
+	};
+};
 
 Ama.Layout = Layout;
 

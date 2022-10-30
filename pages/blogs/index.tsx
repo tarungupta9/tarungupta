@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import clsx from "clsx";
 import Layout from "@containers/Layout/Layout";
 import ListingLayout from "@containers/ListingLayout";
@@ -6,10 +5,6 @@ import ListOfPosts from "@widgets/ListOfPosts/ListOfPosts";
 import blogListing from "@data/Blogs.data";
 
 function Blogs({ selectedId, children }) {
-	useEffect(() => {
-		// fetch about the about the
-	}, []);
-
 	return (
 		<Layout>
 			<main className={clsx("flex", "h-full ", "text-base", "text-primary")}>
