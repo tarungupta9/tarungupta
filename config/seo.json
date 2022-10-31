@@ -1,26 +1,18 @@
 {
-	"title": "Welcome to Tarun's Portfolio",
+	"title": "Welcome to Tarun's Portfolio Website",
 	"titleTemplate": "Tarun's Portfolio",
-	"description": "Next.js Commerce - https://www.nextjs.org/commerce",
+	"description": "My personal website where I upload my blog descriptions, take AMA queries",
 	"openGraph": {
-		"title": "ACME Storefront | Powered by Next.js Commerce",
-		"description": "Next.js Commerce - https://www.nextjs.org/commerce",
+		"title": "Tarun Gupta",
+		"description": "My personal website where I upload my blog descriptions, take AMA queries",
 		"type": "website",
 		"locale": "en_IE",
-		"url": "https://nextjs.org/commerce",
-		"site_name": "Next.js Commerce",
-		"images": [
-			{
-				"url": "/card.png",
-				"width": 800,
-				"height": 600,
-				"alt": "Next.js Commerce"
-			}
-		]
+		"url": "starungupta.vercel.app",
+		"site_name": "Tarun Gupta"
 	},
 	"twitter": {
-		"handle": "@nextjs",
-		"site": "@nextjs",
+		"handle": "@tarun_gupta7",
+		"site": "@tarun_gupta7",
 		"cardType": "summary_large_image"
 	}
 }
