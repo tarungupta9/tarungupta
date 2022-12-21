@@ -5,7 +5,7 @@ import StackData from "@data/Stack.data";
 function Stack() {
 	return (
 		<ListingLayout>
-			<h4 className="sticky top-0 bg-stone-900 py-4 text-primary z-10">
+			<h4 className="sticky top-0 bg-stone-900 py-4 text-primary">
 				{StackData.name}
 			</h4>
 			{renderStacklist(StackData.list)}

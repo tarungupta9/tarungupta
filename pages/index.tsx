@@ -1,6 +1,6 @@
+import clsx from "clsx";
 import Layout from "@containers/Layout/Layout";
 import HomeContent from "@components/HomeContent/index.mdx";
-import clsx from "clsx";
 
 function Home() {
 	return (
@@ -12,7 +12,9 @@ function Home() {
 				"h-full",
 				"flex-col",
 				"justify-between",
-				"p-16"
+				"p-4",
+				"overflow-auto",
+				"md:p-16"
 			)}
 		>
 			<HomeContent />

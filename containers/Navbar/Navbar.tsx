@@ -21,11 +21,15 @@ function Navbar() {
 					"flex",
 					"flex-col",
 					"bg-stone-900",
-					"w-2/12",
+					"w-8/12",
 					"h-full",
 					"border-r",
 					"border-r-stone-700",
-					"box-border"
+					"box-border",
+					"pt-8",
+					"z-20",
+					"md:w-2/12",
+					"md:pt-0"
 				)}
 			>
 				<div

@@ -72,7 +72,7 @@ function Ama({ queries }) {
 			<ListingLayout>
 				<div
 					className={clsx(
-						"sticky top-0 flex justify-between items-center py-4 bg-stone-900 z-10"
+						"sticky top-0 flex justify-between items-center py-4 bg-stone-900"
 					)}
 				>
 					<h4 className="text-primary">Ask me anything</h4>
@@ -253,6 +253,7 @@ export async function getStaticProps() {
 
 	return {
 		props: { queries: JSON.stringify(queries) },
+		revalidate: 86400,
 	};
 }
 
