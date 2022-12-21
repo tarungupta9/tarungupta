@@ -49,7 +49,8 @@ function ModalUI({ title, footer, onClose, children }) {
 					"rounded",
 					"bg-stone-800",
 					"bg-opacity-100",
-					"w-4/12"
+					"w-8/12",
+					"md:w-4/12"
 				)}
 			>
 				<div
