@@ -65,9 +65,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 		id = Array.isArray(id) ? id[0] : id;
 
 		try {
-			const ama = await prisma.ama.findUnique({
+			const ama = await prisma.ama.findFirst({
 				where: {
 					id,
+					isDeleted: false,
 				},
 				select: {
 					createdAt: true,

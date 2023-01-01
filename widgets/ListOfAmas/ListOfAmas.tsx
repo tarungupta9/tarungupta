@@ -68,6 +68,8 @@ function ListOfAmas({ amas, selectedId }: ListOfAmasType) {
 			setCurrentAmas((prevAllComments) =>
 				prevAllComments.filter(({ id }) => id !== amaId)
 			);
+
+			router.push("/ama");
 		} catch (error) {
 			setAlert({
 				message:

@@ -242,6 +242,7 @@ export async function getStaticProps() {
 				public: {
 					equals: true,
 				},
+				isDeleted: false,
 			},
 			select: {
 				id: true,
