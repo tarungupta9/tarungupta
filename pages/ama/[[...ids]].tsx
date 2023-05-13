@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import axios from "axios";
 import clsx from "clsx";
@@ -97,7 +97,6 @@ function Ama({ queries }) {
 							<div className={clsx("flex")}>
 								<div className={clsx("h-10 w-10 mr-4")}>
 									<Image
-										layout="fixed"
 										src={session?.user?.image}
 										alt="profile"
 										height="40"
