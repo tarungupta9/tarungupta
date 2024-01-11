@@ -37,12 +37,12 @@ export default {
 				// 	label: "Bookmarks",
 				// 	slug: "",
 				// },
-				{
-					id: "ama",
-					Icon: BsFillChatLeftFill,
-					label: "AMA",
-					slug: "/ama",
-				},
+				// {
+				// 	id: "ama",
+				// 	Icon: BsFillChatLeftFill,
+				// 	label: "AMA",
+				// 	slug: "/ama",
+				// },
 				{
 					id: "stack",
 					Icon: BsStack,
